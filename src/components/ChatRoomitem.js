@@ -11,7 +11,7 @@ export default function ChatRoomitem(props) {
 
   const openModal = () => setIsOpen(true);
 
-  const handleDelete = (event) => {
+  const handleDelete = () => {
    
     // call a function from app to delete a room (pass room.id as a parameter)
   };

@@ -12,7 +12,7 @@ export default function ChatRoomitem(props) {
   const openModal = () => setIsOpen(true);
 
   const handleDelete = (event) => {
-    // to do : stop page from refreshing
+   
     // call a function from app to delete a room (pass room.id as a parameter)
   };
   return (

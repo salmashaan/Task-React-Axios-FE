@@ -52,9 +52,10 @@ function App() {
   const createRoom = async (newRoom) => {
     try {
       const response = await axios.post(
-        "https://coded-task-axios-be.herokuapp.com/rooms"
+        "https://coded-task-axios-be.herokuapp.com/rooms",
+        newRoom
       );
-      setRooms(...rooms, response.data);
+      setRooms([...rooms, response.data]);
       // to do : call BE to create a room
     } catch (error) {
       console.log(error);
@@ -74,7 +75,7 @@ function App() {
           </Route>
           <Route exact path="/">
             <center>
-              <ChatRoomsList rooms={rooms} />
+              <ChatRoomsList rooms={rooms} createRoom={createRoom} />
             </center>
           </Route>
         </Switch>

@@ -62,7 +62,16 @@ function App() {
     }
   };
 
-  const deleteRoom = (id) => {
+  const deleteRoom = async (id) => {
+    try {
+      const response = await axios.delete(
+        `https://coded-task-axios-be.herokuapp.com/rooms/${id}`
+      );
+      let tempRoom = rooms.filter((room) => room.id !== id);
+      setRooms(tempRoom);
+    } catch (error) {
+      console.log(error);
+    }
     // to do : call BE to delete a room
   };
 
@@ -75,7 +84,11 @@ function App() {
           </Route>
           <Route exact path="/">
             <center>
-              <ChatRoomsList rooms={rooms} createRoom={createRoom} />
+              <ChatRoomsList
+                rooms={rooms}
+                createRoom={createRoom}
+                deleteRoom={deleteRoom}
+              />
             </center>
           </Route>
         </Switch>

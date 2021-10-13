@@ -75,6 +75,17 @@ function App() {
     // to do : call BE to delete a room
   };
 
+  const updateRoom = async (updatedRoom) => {
+    const response = await axios.put(
+      `https://coded-task-axios-be.herokuapp.com/rooms/${updatedRoom.id}`,
+      updatedRoom
+    );
+    let updatedRooms = rooms.map((room) =>
+      updatedRoom.id === room.id ? updatedRoom : room
+    );
+    setRooms(updatedRooms);
+  };
+
   return (
     <div className="__main">
       <div className="main__chatbody">
@@ -88,6 +99,7 @@ function App() {
                 rooms={rooms}
                 createRoom={createRoom}
                 deleteRoom={deleteRoom}
+                updateRoom={updateRoom}
               />
             </center>
           </Route>
@@ -98,3 +110,7 @@ function App() {
 }
 
 export default App;
+
+//for update: on app: create a function that return value to setRooms>
+// send function to ChatRoomList >
+// send to chatRoomItem to take in the input and send it as an input back to app

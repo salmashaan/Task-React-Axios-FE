@@ -86,12 +86,24 @@ function App() {
     setRooms(updatedRooms);
   };
 
+  const createMsg = async (roomId, msg) => {
+    try {
+      const response = await axios.post(
+        `https://coded-task-axios-be.herokuapp.com/rooms/msg/${roomId}`,
+        msg
+      );
+      fetchRooms();
+    } catch (error) {
+      window.alert(error);
+    }
+  };
+
   return (
     <div className="__main">
       <div className="main__chatbody">
         <Switch>
           <Route path="/room/:roomSlug">
-            <ChatRoom rooms={rooms} />
+            <ChatRoom rooms={rooms} createMsg={createMsg} />
           </Route>
           <Route exact path="/">
             <center>

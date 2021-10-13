@@ -68,6 +68,14 @@ a {
 }
 .delete {
   margin-left: 3px;
+  color: #861111;
+  margin-right: 3px;
+}
+
+.delete:hover {
+  background-color: #861111;
+  color: #fff;
+  transform: scale(1.02);
 }
 
 /* width */
@@ -82,13 +90,13 @@ a {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #6c84ff;
+  background: #656565;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b5bfe;
+  background: #d5d5d5;
 }
 
 .main__chatbody {
@@ -103,6 +111,7 @@ a {
 }
 .chatlist__heading {
   margin-top: 40px;
+  font-family: monospace;
 }
 .btn-nobg {
   background-color: transparent;
